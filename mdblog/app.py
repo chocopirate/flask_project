@@ -13,15 +13,11 @@ def view_about():
 
 @flask_app.route("/admin/")
 def view_admin():
-	return "Hello admin"
+	return render_template("admin.jinja")
 
-@flask_app.route("/admin/<string:name>/", methods=['GET', 'POST'])
-def view_admin_name(name):
-	return "Hello {}".format(name)
-
-@flask_app.route("/article/<int:art_id>/")
-def view_article(art_id):
-	return "Article {}".format(art_id)
+@flask_app.route("/articles/")
+def view_articles():
+	return render_template("articles.jinja")
 
 @flask_app.route("/article/<int:art_id>/schwifty/<float:foo>/")
 def view_schwifty_article(art_id, foo):
